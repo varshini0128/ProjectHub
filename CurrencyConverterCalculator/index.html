@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0",>
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="styles.css">
+     <!-- ICONS CDN FONTAWESOME -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+    <div class="top-bar">
+      <div class="menu-container">
+        <button class="menu-button" onclick="toggleMenu()">⋮</button>
+        <ul class="menu-dropdown" id="menuDropdown">
+            <li onclick="openSettings()">⚙️ Settings</li>
+            <li onclick="viewHistory()">📜 History</li>
+            <li onclick="refreshPage()">🔄 Refresh</li>
+        </ul>
+     </div>
+    </div>
+    
+
+    
+    
+    <div class="converter"><div class="header">
+        <h2 id="title">Currency Converter</h2>
+
+<!-- Voice Input Row -->
+<div class="voice-input-container">
+    <input type="text" id="voiceInputField" placeholder="Speak amount ..." readonly>
+    <button id="micButton">
+        <i class="fa fa-microphone"></i> 
+    </button>
+    
+</div>
+
+    </div>
+        <div class="currency-box">
+            <select id="from-currency"></select>
+            <input type="text" id="from-amount" value="1000000" readonly>
+        </div> 
+
+        <div class="currency-box">
+            <select id="to-currency"></select>
+            <input type="text" id="to-amount" value="" readonly>
+        </div>
+
+        <div class="calculator">
+            <button onclick="appendNumber(7)">7</button>
+            <button onclick="appendNumber(8)">8</button>
+            <button onclick="appendNumber(9)">9</button>
+            <button onclick="backspace()">&larr;</button>
+            <button onclick="clearInput()">AC</button>
+          
+            <button onclick="appendNumber(4)">4</button>
+            <button onclick="appendNumber(5)">5</button>
+            <button onclick="appendNumber(6)">6</button>
+            <button onclick="chooseOperator('*')">*</button>
+            <button onclick="chooseOperator('/')">÷</button>
+           
+          
+            <button onclick="appendNumber(1)">1</button>
+            <button onclick="appendNumber(2)">2</button>
+            <button onclick="appendNumber(3)">3</button>
+            <button onclick="chooseOperator('+')">+</button>
+            <button onclick="chooseOperator('-')">−</button> 
+          
+            <button onclick="appendNumber(0)">0</button>
+            <button onclick="appendDecimal()">.</button>
+            <button onclick="chooseOperator('%')">%</button>
+            <button onclick="swapCurrencies()">⇅</button>  
+            <button onclick="calculateResult()">=</button>
+        </div>
+
+          <div class="exchange-rate" id="exchange-rate"></div>
+         <p id="last-updated" class="last-updated"></p>
+         <p class="api-credit">Powered by Open Exchange Rates</p>
+       
+
+        </div>
+       
+      
+    
+    </div>
+    <!-- History Screen (Hidden by Default) -->
+<div id="history-screen" class="history-overlay">
+    <div class="history-container">
+        <h2>Calculation History</h2>
+        <div id="history-content"></div>
+        <button onclick="closeHistory()">Close</button>
+    </div>
+</div>
+
+<div id="settings-screen" class="full-screen">
+    <h2>Settings</h2>
+
+   <!-- Theme Section -->
+    
+
+<div class="setting-item" onclick="toggleThemeOptions()">
+    <span>Theme</span>
+       
+  <div class="btn">
+    <div class="btn__indicator">
+      <div class="btn__icon-container">
+        <i class="btn__icon fa-solid fa-sun"></i>
+       
+      </div>
+    </div>
+  </div>
+
+</div>
+
+   
+    <!-- Sound Effects -->
+    <div class="setting-item">
+        <span>Sound Effects</span>
+        <label class="switch">
+            <input type="checkbox" id="sound-toggle" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Privacy Policy -->
+    <div class="setting-item" onclick="openPrivacy()">
+        <span>Privacy Policy</span>
+        <span class="arrow">></span>
+     
+
+    </div>
+
+    <!-- About App -->
+    <div class="setting-item" onclick="openAbout()">
+        <span>About</span>
+        <span class="arrow">></span>
+    </div>
+
+    <!-- Reset Data -->
+    <div class="setting-item" onclick="resetData()">
+        <span>Reset Data</span>
+    </div>
+
+    <!-- Close Button -->
+    <button class="close-btn" onclick="closeSettings()">Close</button>
+</div>
+
+<script src="script.js">
+
+    
+</script>
+
+</body>
+</html>

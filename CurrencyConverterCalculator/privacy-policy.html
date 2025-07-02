@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+
+    <style>
+          body{
+            margin-top:0px;
+            padding-top: 10px;
+            background-color: white;
+            color:black;
+        }
+       
+body.dark-mode {
+    background-color: #121212; /* Dark mode background */
+    color: #ffffff;
+}
+
+.dark-mode .about-container {
+    color: white;
+}
+
+        h1{
+            text-align:center;
+        }
+        h2,h3,h4,h5,h6{
+            text-align: left;
+        }
+
+        p{
+            text-align: justify;
+        }
+      
+.go-back-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+}
+
+.go-back-btn:hover {
+    background-color: #555;
+}
+    </style>
+
+</head>
+<body>
+    <div class="privacy-container">
+        <h1>Privacy Policy</h1>
+        <p>
+            Your privacy is important to us. This Privacy Policy outlines how our Currency Converter App collects, uses, and protects your information.
+        </p>
+
+        <h2>1. No Personal Data Collected</h2>
+        <p>We do not collect, store, or share any personal information. The app works completely offline and does not require sign-in or personal identification.</p>
+
+        <h2>2. Exchange Rate Data</h2>
+        <p>Exchange rates are fetched from trusted third-party APIs. No identifiable user information is transmitted during this process.</p>
+
+        <h2>3. Voice Input</h2>
+        <p>If you use the voice input feature, it only processes your command locally and does not send your voice data to any server.</p>
+
+        <h2>4. Internet Usage</h2>
+        <p>Internet access is only used to fetch the latest exchange rates and optional currency news. No other data is sent or received.</p>
+
+        <h2>5. Local Storage</h2>
+        <p>We use your device’s local storage to save preferences like theme mode, sound settings, and last-used currencies. This data stays only on your device.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have questions about privacy, feel free to reach out to us at <strong>[your email or site]</strong>.</p>
+
+        <button onclick="history.back()" class="go-back-btn">Go Back</button>
+    </div>
+  
+<script src="script.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    });
+</script>
+    
+</body>
+</html>

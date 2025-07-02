@@ -1,0 +1,754 @@
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.converter {
+    max-width: 400px;
+    margin: auto;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff; /* White for light mode */
+    color: #000;            /* Black text for contrast */
+}
+.darkmode .converter {
+    background-color: #222; /* or #333 for dark mode */
+    color: #fff;
+    
+  }
+  
+.currency-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    color:#000;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: auto;
+}
+/* Dark Mode override */
+.darkmode .currency-box {
+    background-color: #333; /* or your dark color */
+    color: #fff;
+    border-color: white;
+}
+
+
+.currency img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+input {
+    font-size: 22px;
+    background: none;
+    border: none;
+    
+    color: white;
+    text-align: right;
+    width: 150px;
+    pointer-events: none; /* Ensures users can't manually type */
+}
+
+
+.calculator {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 9px;
+    width: 100%;
+    max-width: 420px; /* Optional: prevent it from growing too wide */
+    margin: 0 auto;
+    border-radius : 6px; 
+    box-sizing: border-box;
+}
+
+button {
+    font-size: 20px;
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    cursor: pointer;
+    background: #444;
+    color: white;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    background: #555;
+}
+
+/* Special styles for orange buttons */
+button:nth-child(5n) {
+    background: #C1E7E3; /* light color from reference image */
+}
+
+button:nth-child(5n):hover {
+    background: #C1E7E3; /* light color on hover */
+}
+
+.exchange-rate {
+    margin-top: 10px;
+    font-size: 24px;
+    
+    color: green;
+}
+select {
+    appearance: none;
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    padding: 10px 35px; /* Extra padding for flag */
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    background-size: 25px;
+}
+
+button:active {
+    transform: translateY(2px); /* Creates press-down effect */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.calculator button {
+    background-color: white;  /* Default black */
+    color: black;
+    border: none;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 1px solid #000;
+    width : 100%;  /* Adjust for your layout */
+    height: 100%; /* Same as width to make it a circle */
+    border-radius: 50%; /* This makes it round */
+}
+
+.calculator button:nth-child(5n),  /* Every 5th button */
+.calculator button:nth-child(5n-1) {  /* Every 4th button */
+    background-color: #C1E7E3;/* Apply orange to last two columns */
+}
+.converter {
+    max-width: 400px;
+    width: 100%; /* Make it wider */
+    height: 80vh; /* Take 90% of the screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+button {
+    font-size: 24px; /* Increase button size */
+    padding: 18px; /* Bigger padding */
+}
+input {
+    font-size: 24px;
+}
+.header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 30px;  /* Bigger title */
+    font-weight: bold;
+    font-style:italic;
+    color: #C1E7E3;
+}
+.last-updated {
+    font-size: 12px;
+    color: #bbb;
+    text-align: center;
+    margin-top: 5px;
+}
+.api-credit {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 35px;
+    font-style: italic; 
+}
+.menu-container {
+    position: absolute;
+    top: 10px;  /* Adjust as needed */
+    right: 10px; /* Move to the right */
+    z-index: 100;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Ensure dropdown aligns under the button */
+.menu-dropdown {
+    position: absolute;
+    top: 30px; /* Position below the three dots */
+    right: 0;
+    background: black;
+    list-style: none;
+    padding: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    width: 140px;
+    z-index: 101;
+}
+
+.menu-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+}
+
+.menu-dropdown li:hover {
+    background:black;
+}
+
+/* Full-Screen History Panel */
+.history-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Darker Background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+/* History Box */
+.history-container {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    height: 80%;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Close Button */
+.history-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.history-container button:hover {
+    background: #0056b3;
+}
+
+/* Style History Text */
+#history-content p {
+    font-size: 18px;
+    color: black;
+    margin: 5px 0;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Ensure settings are fully visible */
+.full-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    color: black;
+}
+
+/* Style for setting items */
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    color: black;
+}
+
+/* Ensure Theme Section is aligned left */
+/* ------------ VARIABLES ------------ */
+:root{
+    /* COLORS */
+    --color: #9176FF;
+    --dark-color: #2b2b2b;
+    --dark-icon-color: #fff;
+    --light-color: #f7f7f7;
+    --light-icon-color: #FFDE59;
+  }
+  
+  /* ------------ BASE ------------ */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--light-color);
+  }
+  
+  /* -------------- BUTTON (Smaller Size) -------------- */
+  .btn{
+    background-color: #fff;
+    width: 40px;   /* Reduced Width */
+    height: 20px;  /* Reduced Height */
+    border-radius: 34px;
+    padding: 0 2px;
+  
+    box-shadow: inset 0 4px 20px rgba(0,0,0, .1),
+                inset 0 4px 4px rgba(0,0,0, .1),
+                inset 0 -2px 2px rgba(0,0,0, .1);
+  
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .btn__indicator{
+    background-color: #fff;
+    width: 14px;   /* Reduced Width */
+    height: 14px;  /* Reduced Height */
+    border-radius: 50%;
+  
+    position: absolute;
+    left: 3px;
+    transition: transform .3s ease;
+  
+    box-shadow: 0 4px 10px rgba(0,0,0, .2);
+  }
+  
+  .btn__icon-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn__icon{
+    color: var(--light-icon-color);
+    font-size: 10px; /* Adjusted Icon Size */
+  }
+  
+  /* -------------- ANIMATION ------------ */
+  .btn__icon.animated{
+    animation: spin 0.5s;
+  }
+  
+  @keyframes spin{
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* -------------- DARKMODE -------------- */
+  body.darkmode{
+    background-color: var(--dark-color);
+  }
+  
+  .darkmode .btn{
+    box-shadow: inset 0 4px 20px rgba(0,0,0, .3),
+                inset 4px 0 4px rgba(0,0,0, .3),
+                inset 0 -2px 2px rgba(0,0,0, .3);
+  }
+  
+  .darkmode .btn__indicator{
+    transform: translateX(20px);
+    background-color: var(--dark-color);
+    box-shadow: 0 4px 10px rgba(0,0,0, .3);
+  }
+  
+  .darkmode .btn__icon{
+    color: var(--dark-icon-color);
+  }
+  
+
+/* Sound Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+.setting-item {
+    position: relative;
+    z-index: 10; /* Ensure it's above other elements */
+    cursor: pointer; /* Make it clear it's clickable */
+}
+.setting-item {
+    position: relative;
+    z-index: 10; /* Ensure it's above other elements */
+    cursor: pointer; /* Make it clear it's clickable */
+}
+
+
+/* Close Button */
+.close-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+.darkmode {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* Optional: Adjust other elements for dark mode */
+.darkmode .setting-item {
+    background-color: #222; 
+    color: white;
+}
+/* Apply dark mode to the entire app */
+.darkmode {
+    background-color: #222 !important;
+    color: white !important;
+}
+
+/* Ensure all screens (main, settings, history) change */
+.darkmode #main-screen,
+.darkmode #settings-screen,
+.darkmode #history-screen {
+    background-color: #222 !important;
+    color: white !important;
+    
+}
+
+/* Optional: Adjust list items and buttons */
+.darkmode .setting-item,
+.darkmode .history-item {
+    background-color: #333; 
+    color: white;
+    border-color: #555;
+}
+
+/* Optional: Make sure the toggle buttons are visible in dark mode */
+.darkmode .btn {
+    background: #444;
+}
+
+.darkmode .btn__indicator {
+    background: white;
+}
+/* Apply dark mode to the entire app */
+.darkmode {
+    background-color: #222 !important;
+    color: white !important;
+}
+
+/* Ensure all screens (main, settings, history) change */
+.darkmode #main-screen,
+.darkmode #settings-screen,
+.darkmode #history-screen {
+    background-color: #222 !important;
+    color: white !important;
+}
+
+/* Optional: Adjust list items and buttons */
+.darkmode .setting-item,
+.darkmode .history-item {
+    background-color: #333; 
+    color: white;
+    border-color: #555;
+}
+
+/* Optional: Make sure the toggle buttons are visible in dark mode */
+.darkmode .btn {
+    background: #444;
+    border-color: white;
+}
+
+.darkmode .btn__indicator {
+    background: white;
+    border-color: white;
+}
+.darkmode .history-overlay {
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.darkmode .history-container {
+    background-color: #222 !important;
+    color: white !important;
+}
+
+.darkmode #history-content p {
+    color: white !important;
+}
+/* Base Light Mode */
+.currency-box, .calculator button, select {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000 
+}
+
+/* Dark Mode */
+.darkmode .currency-box, 
+.darkmode .calculator button,
+.darkmode select {
+    background-color: #333;
+    color: #fff;
+    border-color: white;
+}
+/* Light Mode Input Overrides */
+body:not(.darkmode) #from-amount,
+body:not(.darkmode) #to-amount {
+    color: #000 !important;
+    background-color: #fff !important;
+   
+}
+
+/* Light Mode override for the three-dot menu */
+body:not(.darkmode) .menu-dropdown {
+    background-color: #fff !important;
+    color: #000 !important;
+   
+}
+
+body:not(.darkmode) .menu-dropdown li {
+    color: #000 !important;
+}
+
+body:not(.darkmode) .menu-dropdown li:hover {
+    background-color: #eee !important;
+}
+/* Light Mode override for the three-dot button */
+body:not(.darkmode) .menu-button {
+    background-color: #fff !important; /* White background */
+    color: #000 !important;           /* Black dots (⋮) */
+    border-radius: 5px;              /* Optional: slightly rounded corners */
+    padding: 5px;
+}
+/* Light Mode override for the history screen */
+body:not(.darkmode) .history-overlay {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: #000 !important;
+}
+
+body:not(.darkmode) .history-container {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+.calculator button:nth-child(5n),
+.calculator button:nth-child(5n-1) {
+    background-color: #C1E7E3;
+    color: #000;
+}
+
+
+
+
+.voice-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 360px;
+}
+
+#voiceInputField {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Space for mic button */
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    background: #fff  !important;/* Light mode background */
+    color: #000; /* Text color for light mode */
+}
+
+/* Dark mode styles */
+.dark-mode #voiceInputField {
+    border: 1px solid white;
+    background: #444 !important; /* Same as currency field */
+    color: #fff !important;
+    padding: 12px;
+    border-radius: 6px;
+    border-color: white;
+}
+
+#micButton {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+    transition: background 0.2s ease-in-out;
+    width: 30px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+}
+
+#micButton:active {
+    transform: translateY(-50%) scale(1);; /* Click animation */
+    background: none;
+    color: red;
+}
+.darkmode #voiceInputField {
+    border: 1px solid white;
+    background: #333 !important; /* Match currency field */
+    color: #fff !important;
+    padding: 12px;
+    border-radius: 6px;
+    border-color: white;
+}
+.darkmode .calculator {
+    border: 1px solid white; /* White border */
+    margin-top: 10px;/* Center the calculator */
+    border-radius: 6px;
+    padding: 9px;
+
+}
+button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+
+.calculator button {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+.calculator button:active {
+    background-color: #C1E7E3; /* Light mode */
+    color: white;
+    border-radius: 50%; /* Ensures the effect stays circular */
+}
+
+.darkmode .calculator button:active {
+    background-color: #C1E7E3; /* Dark mode */
+    color: black;
+    border-radius: 50%;
+}
+
+.calculator button {
+    transition: transform 0.1s ease-in-out;
+}
+
+.calculator button:active {
+    transform: scale(0.9); /* Slight press effect */
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Optional: dark styles for containers */
+.dark-mode .about-container,
+.dark-mode .privacy-container {
+    background-color: transparent;
+    color: white;
+}
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
