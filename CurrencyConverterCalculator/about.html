@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+   <style>
+/* Default Light Mode */
+body {
+    background-color: #f8f9fa; /* Light background */
+    color: #212529; /* Dark text */
+    margin-top: 0px;
+    padding-top: 0px;
+     }
+        h1{
+            text-align:center;
+        }
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text */
+}
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+.dark-mode .about-text {
+    color: white; /* Ensure text is visible */
+}
+
+.about-container {
+    max-width: 900px;  /* Set a readable width */
+    min-height: 100vh;
+    margin: 0 auto;  /* Center the content */
+    overflow: visible; 
+    padding: 20px;
+    text-align: left;
+    text-align: justify !important;
+    line-height: 1.6;
+}
+
+
+.about-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.about-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.about-container ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.about-container ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+
+}
+
+/* Dark mode adjustments */
+.dark-mode .about-container {
+    color: white;
+}
+
+.go-back-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+}
+
+.go-back-btn:hover {
+    background-color: #555;
+}
+</style>
+</head>
+<body>
+    <div class="about-container">
+        <h1>About</h1>
+        <p>
+            Welcome to the <strong>[App Name]</strong> Currency Converter! This app allows you to quickly and 
+            accurately convert currencies from around the world. Whether you're a traveler, a business professional, 
+            or just curious about exchange rates, our app provides real-time conversion with ease.
+        </p>
+    
+        <h2>Features</h2>
+        <ul>
+            <li> <strong>Offline Mode:</strong> Convert currencies even without the internet.</li>
+            <li> <strong>Voice Input:</strong> Speak and convert currencies hands-free.</li>
+            <li> <strong>Smart Calculator:</strong> Perform basic math operations.</li>
+            <li> <strong>Exchange Rate Trends:</strong> See currency trends with 🔺/🔻 indicators.</li>
+            <li> <strong>Dark & Light Mode:</strong> Customize your experience.</li>
+            <li> <strong>Haptic Feedback & Sounds:</strong> Enjoy a more interactive experience.</li>
+        </ul>
+    
+        <h2>How It Works</h2>
+        <p>Simply enter the amount, choose your currencies, and get instant conversions. Use the calculator feature for quick calculations.</p>
+    
+        <h2>Data Source 🌍</h2>
+        <p>We fetch exchange rates from a trusted financial API to ensure accurate and real-time conversions.</p>
+    
+        <h2>About the Developer 👨‍💻</h2>
+        <p>This app was developed by <strong>[Your Name]</strong> with a passion for making currency conversion simple and accessible for everyone.</p>
+    
+        <h2>Contact Us 📩</h2>
+        <p>Have suggestions or feedback? Reach out to us at <strong>[Your Email or Website]</strong>.</p>
+    
+        <button onclick="history.back()" class="go-back-btn">Go Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back(); // Go back to previous page
+        }
+      </script>
+</body>
+</html>
