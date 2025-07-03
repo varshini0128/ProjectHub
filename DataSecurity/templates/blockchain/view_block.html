@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}View Block - HealthChain{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+   
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0"><i class="bi bi-box"></i> Block Details</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Block ID:</strong> {{ block.id }}</p>
+                    <p><strong>Record ID:</strong> {{ block.record_id }}</p>
+                    <p><strong>Timestamp:</strong> {{ block.timestamp|date:"F d, Y H:i:s" }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Previous Hash:</strong> <code>{{ block.previous_hash|default:"Genesis Block" }}</code></p>
+                    <p><strong>Hash:</strong> <code>{{ block.hash }}</code></p>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h4>Block Data</h4>
+                <div class="bg-light p-3 rounded">
+                    <pre><code>{{ parsed_data }}</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'my_blockchain' %}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to Blockchain
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
