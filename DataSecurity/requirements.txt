@@ -73,10 +73,10 @@ six==1.17.0
 sklearn-extensions==0.0.2
 sklearn-genetic==0.2
 sqlparse==0.5.3
-tensorboard==2.19.0
+tensorboard
 tensorboard-data-server==0.7.2
 tensorflow
-tensorflow-io-gcs-filesystem==0.31.0
+tensorflow-io-gcs-filesystem
 termcolor==3.0.1
 threadpoolctl==3.6.0
 tifffile==2025.3.30
