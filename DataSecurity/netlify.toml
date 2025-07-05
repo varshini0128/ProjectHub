@@ -1,0 +1,12 @@
+ 
+[build]
+  command = "bash netlify_build.sh"
+  publish = "DataSecurity/DataSecurity/dist"
+
+[build.environment]
+  PIP_NO_BINARY = "mysqlclient"
+  PIP_FORCE_REINSTALL = "true"
+  PYTHON_VERSION = "3.10"
+
+[[plugins]]
+  package = "@netlify/plugin-python"
