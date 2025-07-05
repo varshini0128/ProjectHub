@@ -8,5 +8,3 @@
   PIP_FORCE_REINSTALL = "true"
   PYTHON_VERSION = "3.10"
 
-[[plugins]]
-  package = "@netlify/plugin-python"
