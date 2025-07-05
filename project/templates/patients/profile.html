@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile - HealthChain{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    {% if user_type == 'patient' %}
+    <!-- Patient Profile -->
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0"><i class="bi bi-person-circle"></i> Patient Profile</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Patient ID:</strong> {{ patient.patient_id }}</p>
+                    <p><strong>Full Name:</strong> {{ patient.full_name }}</p>
+                    <p><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</p>
+                    <p><strong>Phone Number:</strong> {{ patient.phone_number }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Address:</strong> {{ patient.address }}</p>
+                    <p><strong>Medical Condition:</strong> {{ patient.problem }}</p>
+                    <p><strong>Member Since:</strong> {{ patient.created_at|date:"F d, Y" }}</p>
+                    {% if blockchain_verified %}
+                    <p><span class="badge bg-success"><i class="bi bi-shield-check"></i> Blockchain Verified</span></p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'edit_profile' %}" class="btn btn-primary">
+                    <i class="bi bi-pencil"></i> Edit Profile
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% elif user_type == 'hospital' %}
+    <!-- Hospital Profile -->
+    <div class="card shadow">
+        <div class="card-header bg-secondary text-white">
+            <h3 class="mb-0"><i class="bi bi-hospital"></i> Hospital Profile</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Hospital Name:</strong> {{ hospital.hospital_name }}</p>
+                    <p><strong>License Number:</strong> {{ hospital.license_number }}</p>
+                    <p><strong>Website:</strong> <a href="{{ hospital.website }}" target="_blank">{{ hospital.website }}</a></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Address:</strong> {{ hospital.address }}</p>
+                    <p><strong>Member Since:</strong> {{ hospital.created_at|date:"F d, Y" }}</p>
+                    {% if blockchain_verified %}
+                    <p><span class="badge bg-success"><i class="bi bi-shield-check"></i> Blockchain Verified</span></p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'edit_profile' %}" class="btn btn-primary">
+                    <i class="bi bi-pencil"></i> Edit Profile
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

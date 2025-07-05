@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+
+{% block title %}Blockchain Security - HealthChain{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="mb-4">How Blockchain Secures Your Health Data</h1>
+            <p class="lead">Learn how our blockchain technology provides unprecedented security and privacy for your medical records.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Blockchain Explanation -->
+<section class="container mt-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h2>What is Blockchain?</h2>
+            <p>Blockchain is a distributed digital ledger technology that records transactions across many computers so that any involved record cannot be altered retroactively, without the alteration of all subsequent blocks.</p>
+            <p>Think of it as a chain of digital "blocks" that contain records of transactions. Each block is connected to the ones before and after it, creating a chronological chain of data.</p>
+            <p>This structure inherently makes blockchain exceptionally secure and resistant to modification of data, which is why it's perfect for healthcare records.</p>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body p-0">
+                    <img src="https://ml.globenewswire.com/Resource/Download/2e841639-ccfa-4d0d-b863-a9782d7cb229/image1.png" alt="Blockchain Visualization"   style="width: 634px; height: 313px;"  class="rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6 order-md-2">
+            <h2>How We Implement Blockchain</h2>
+            <p>In HealthChain, every patient record is secured as a cryptographic "block" in our healthcare blockchain.</p>
+            <p>When a new record is created or updated, a new block is added to the chain. Each block contains:</p>
+            <ul>
+                <li>A timestamp of when the record was created</li>
+                <li>The health data (encrypted for privacy)</li>
+                <li>A reference to the previous block (creating the "chain")</li>
+                <li>A cryptographic hash that secures the entire block</li>
+            </ul>
+            <p>This makes it virtually impossible for data to be altered without detection, ensuring the integrity of your medical records.</p>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <div class="card">
+                <div class="card-body p-0">
+                    <img src="https://assets.weforum.org/article/image/responsive_large_R82JR0isdXqycPtKDPJ6jGUcEmw-hkfY8xfiSIEcJQA.jpg" alt="Healthcare Blockchain Implementation" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blockchain Benefits with Animation -->
+<section class="container mt-5">
+    <h2 class="text-center mb-5">Key Security Benefits</h2>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 mb-3"><i class="bi bi-fingerprint text-primary me-2"></i> Immutable Records</h3>
+                    <p>Once data is recorded on the blockchain, it cannot be altered or deleted without detection, ensuring the accuracy and reliability of medical records.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 mb-3"><i class="bi bi-key text-primary me-2"></i> Enhanced Privacy</h3>
+                    <p>Patient data is encrypted and only accessible to authorized users with proper cryptographic keys, protecting sensitive health information.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 mb-3"><i class="bi bi-clock-history text-primary me-2"></i> Transparent History</h3>
+                    <p>A complete and verifiable history of all changes to medical records is maintained, providing an audit trail that enhances trust and accountability.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 mb-3"><i class="bi bi-shield-check text-primary me-2"></i> Tamper-Proof</h3>
+                    <p>The decentralized nature of blockchain means there's no single point of failure, making it extremely difficult for hackers to compromise your data.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 mb-3"><i class="bi bi-people text-primary me-2"></i> Patient Control</h3>
+                    <p>Patients maintain sovereign control over their medical records, granting or revoking access permissions to specific healthcare providers.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 mb-3"><i class="bi bi-robot text-primary me-2"></i> AI-Enhanced Security</h3>
+                    <p>Our AI algorithms continuously monitor the blockchain for suspicious activities and potential security threats, adding an extra layer of protection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works - Technical Details -->
+<section class="container mt-5">
+    <h2 class="text-center mb-5">How It Works: Technical Overview</h2>
+    
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="blockchain-block">
+                <h4>1. Data Creation</h4>
+                <p>When new medical data is created, it's encrypted and prepared for blockchain storage.</p>
+            </div>
+            
+            <div class="blockchain-connector mx-auto"></div>
+            
+            <div class="blockchain-block">
+                <h4>2. Block Formation</h4>
+                <p>The encrypted data is combined with a timestamp, the previous block's hash, and other metadata to form a new block.</p>
+            </div>
+            
+            <div class="blockchain-connector mx-auto"></div>
+            
+            <div class="blockchain-block">
+                <h4>3. Verification Process</h4>
+                <p>The new block is verified using consensus algorithms to ensure its authenticity before being added to the chain.</p>
+            </div>
+            
+            <div class="blockchain-connector mx-auto"></div>
+            
+            <div class="blockchain-block">
+                <h4>4. Block Addition</h4>
+                <p>Once verified, the new block is added to the blockchain, creating an immutable record that cannot be altered.</p>
+            </div>
+            
+            <div class="blockchain-connector mx-auto"></div>
+            
+            <div class="blockchain-block">
+                <h4>5. AI Security Analysis</h4>
+                <p>Our AI algorithms continuously monitor the blockchain for unusual patterns or potential security threats.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="container mt-5">
+    <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+    
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="accordion" id="blockchainFAQ">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqAnswer1">
+                            Is blockchain technology HIPAA compliant?
+                        </button>
+                    </h2>
+                    <div id="faqAnswer1" class="accordion-collapse collapse show" data-bs-parent="#blockchainFAQ">
+                        <div class="accordion-body">
+                            Yes, our blockchain implementation is designed to be fully HIPAA compliant. We use advanced encryption to protect all personal health information (PHI) and maintain strict access controls that meet or exceed HIPAA requirements.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqAnswer2">
+                            Who can access my medical records on the blockchain?
+                        </button>
+                    </h2>
+                    <div id="faqAnswer2" class="accordion-collapse collapse" data-bs-parent="#blockchainFAQ">
+                        <div class="accordion-body">
+                            Only you and the healthcare providers you explicitly authorize can access your medical records. We use advanced cryptographic techniques to ensure that access permissions are strictly enforced, giving you full control over your health data.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqAnswer3">
+                            How is blockchain more secure than traditional databases?
+                        </button>
+                    </h2>
+                    <div id="faqAnswer3" class="accordion-collapse collapse" data-bs-parent="#blockchainFAQ">
+                        <div class="accordion-body">
+                            Traditional databases typically have a single point of failure and can be modified by administrators without detection. Blockchain, however, distributes data across multiple nodes, requires consensus for any changes, and maintains a verifiable history of all transactions, making unauthorized modifications virtually impossible.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqAnswer4">
+                            What happens if I need to correct information in my medical record?
+                        </button>
+                    </h2>
+                    <div id="faqAnswer4" class="accordion-collapse collapse" data-bs-parent="#blockchainFAQ">
+                        <div class="accordion-body">
+                            While blockchain records are immutable, our system allows for corrections through addendum blocks. The original information remains as part of the historical record, but correction blocks can be added with the updated information, maintaining both data integrity and accuracy.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqAnswer5">
+                            How does the AI component enhance blockchain security?
+                        </button>
+                    </h2>
+                    <div id="faqAnswer5" class="accordion-collapse collapse" data-bs-parent="#blockchainFAQ">
+                        <div class="accordion-body">
+                            Our AI systems continuously monitor access patterns, data requests, and blockchain transactions to detect potential security threats. The AI can identify unusual behavior that might indicate unauthorized access attempts, and it learns over time to improve threat detection capabilities.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-primary text-white py-5 mt-5 rounded-3">
+    <div class="container text-center">
+        <h2 class="mb-4">Experience the future of healthcare data security</h2>
+        <p class="lead mb-4">Join HealthChain today and take control of your medical records with blockchain technology.</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="{% url 'register_selection' %}" class="btn btn-light btn-lg">Get Started</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">Log In</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animation for blockchain blocks
+    document.addEventListener('DOMContentLoaded', function() {
+        const blocks = document.querySelectorAll('.blockchain-block');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        blocks.forEach(block => {
+            block.style.opacity = 0;
+            block.style.transform = 'translateX(-20px)';
+            block.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(block);
+        });
+    });
+</script>
+{% endblock %}
