@@ -1,6 +1,6 @@
  
 [build]
-  command = "bash netlify_build.sh"
+  command = "npm run build"
   publish = "dist"
 
 [build.environment]
