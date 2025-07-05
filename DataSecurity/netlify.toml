@@ -1,7 +1,7 @@
  
 [build]
   command = "bash netlify_build.sh"
-  publish = "DataSecurity/DataSecurity/dist"
+  publish = "dist"
 
 [build.environment]
   PIP_NO_BINARY = "mysqlclient"
