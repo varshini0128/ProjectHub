@@ -1,1 +1,0 @@
-# Patients management app
