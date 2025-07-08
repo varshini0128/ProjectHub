@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Hospital Registration - HealthChain{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-secondary text-white">
+                    <h3 class="mb-0"><i class="bi bi-hospital-fill"></i> Hospital Registration</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.username|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.hospital_name|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.password|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.confirm_password|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.license_number|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.website|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            {{ form.address|as_crispy_field }}
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.security_question|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.security_answer|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mt-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a> and <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mt-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="hipaa" required>
+                                <label class="form-check-label" for="hipaa">
+                                    I certify that my hospital complies with all applicable healthcare regulations and data protection standards
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-secondary btn-lg">
+                                <i class="bi bi-hospital"></i> Register Hospital
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        Already have an account? <a href="{% url 'login' %}">Log in here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Terms Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Terms and Conditions</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>HealthChain Terms of Service for Hospitals</h4>
+                <p>These Terms of Service govern your use of the HealthChain platform for secure patient data management. By using our services, you agree to these terms.</p>
+                
+                <h5>1. Hospital Eligibility and Verification</h5>
+                <p>Hospitals must provide valid license information and may be subject to verification. Providing false information is grounds for immediate account termination.</p>
+                
+                <h5>2. Patient Data Access and Usage</h5>
+                <p>Hospitals may only access patient data with explicit patient consent. All data access is logged and recorded on the blockchain. Unauthorized access attempts may result in account termination and legal action.</p>
+                
+                <h5>3. Hospital Responsibilities</h5>
+                <p>Hospitals are responsible for maintaining the security of their account credentials, ensuring accurate record entry, and complying with all applicable healthcare regulations.</p>
+                
+                <h5>4. Data Security and Privacy</h5>
+                <p>Hospitals must implement appropriate security measures to protect patient data accessed through the platform and must not download, copy, or store patient data outside the platform without explicit authorization.</p>
+                
+                <h5>5. Limitation of Liability</h5>
+                <p>HealthChain is not liable for any damages arising from your use of the service or any unauthorized access to patient information that is not a result of our negligence.</p>
+                
+                <h5>6. Modifications to Terms</h5>
+                <p>We may modify these terms at any time. Continued use of the platform after changes constitutes agreement to the updated terms.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Privacy Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Privacy Policy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>HealthChain Privacy Policy for Hospitals</h4>
+                <p>This Privacy Policy explains how HealthChain collects, uses, and protects hospital and patient information.</p>
+                
+                <h5>1. Information We Collect from Hospitals</h5>
+                <p>We collect hospital registration information including name, license number, address, website, and contact details. We also record all patient data access and modifications made by hospital users.</p>
+                
+                <h5>2. How We Use Hospital Information</h5>
+                <p>Hospital information is used to verify eligibility, maintain secure access controls, facilitate patient data management, and ensure compliance with healthcare regulations.</p>
+                
+                <h5>3. Blockchain Security and Audit Trail</h5>
+                <p>All hospital actions on the platform, including patient record access and modifications, are recorded on the blockchain to create an immutable audit trail. This ensures accountability and protects both patients and hospitals.</p>
+                
+                <h5>4. Hospital Data Sharing</h5>
+                <p>Basic hospital information (name, website) may be visible to patients when selecting healthcare providers. Detailed hospital information is not shared with third parties except as required by law.</p>
+                
+                <h5>5. Hospital Rights and Responsibilities</h5>
+                <p>Hospitals have the right to access and update their account information. Hospitals are responsible for obtaining appropriate patient consent before accessing or modifying patient records and for ensuring the accuracy of all information entered.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

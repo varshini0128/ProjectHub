@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edit Profile - HealthChain{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header {% if user_type == 'patient' %}bg-primary{% else %}bg-secondary{% endif %} text-white">
+            <h3 class="mb-0">
+                {% if user_type == 'patient' %}
+                    <i class="bi bi-person-circle"></i> Edit Patient Profile
+                {% else %}
+                    <i class="bi bi-hospital"></i> Edit Hospital Profile
+                {% endif %}
+            </h3>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Security Question</label>
+                            <div class="form-control bg-light">{{ security_question }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Security Answer</label>
+                            <div class="form-control bg-light">{{ security_answer }}</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Save Changes
+                    </button>
+                    <a href="{% url 'profile' %}" class="btn btn-secondary">
+                        <i class="bi bi-x"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
